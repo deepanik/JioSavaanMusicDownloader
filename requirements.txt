@@ -1,5 +1,5 @@
-flask
 requests
-sanitize-filename
 mutagen
-gunicorn
+sanitize_filename
+tkinter
+pyinstaller 
