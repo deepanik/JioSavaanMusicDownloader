@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['guiu.py'],
+    ['JioMusicDLD.py'],
     pathex=[],
     binaries=[],
-    datas=[('D:\\JioSavaan\\icon.ico', '.')],
+    datas=[],
     hiddenimports=['requests', 'mutagen', 'sanitize_filename'],
     hookspath=[],
     hooksconfig={},

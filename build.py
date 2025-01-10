@@ -1,41 +1,46 @@
 import PyInstaller.__main__
 import os
-import sys
+import shutil
+import time
 
 def build_app():
     # Get the current directory
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    
-    # Define paths
     icon_path = os.path.join(current_dir, 'icon.ico')
-    dist_path = os.path.join(current_dir, 'dist')
-    build_path = os.path.join(current_dir, 'build')
     
-    # Build command
+    # Define build arguments with updated filename
     build_args = [
-        'guiu.py',
+        'JioMusicDLD.py',
         '--name=JioSaavn_AI_Downloader',
         '--onefile',
         '--windowed',
+        f'--icon={icon_path}',
         '--clean',
+        f'--distpath={os.path.join(current_dir, "dist")}',
+        f'--workpath={os.path.join(current_dir, "build")}',
         '--noconfirm',
-        f'--distpath={dist_path}',
-        f'--workpath={build_path}',
-        f'--specpath={current_dir}',
         '--hidden-import=requests',
         '--hidden-import=mutagen',
         '--hidden-import=sanitize_filename',
     ]
     
-    # Add icon if it exists
-    if os.path.exists(icon_path):
-        build_args.extend([
-            f'--icon={icon_path}',
-            f'--add-data={icon_path};.'
-        ])
-    
-    # Run PyInstaller
-    PyInstaller.__main__.run(build_args)
+    try:
+        # Remove old build files
+        for path in ['build', 'dist']:
+            if os.path.exists(path):
+                shutil.rmtree(path)
+                time.sleep(1)  # Wait for file system
+                
+        # Run PyInstaller
+        PyInstaller.__main__.run(build_args)
+        
+    except PermissionError:
+        print("Error: Cannot access files. Please close any running instances of the application.")
+        input("Press Enter to try again...")
+        build_app()  # Retry
+    except Exception as e:
+        print(f"Build error: {str(e)}")
+        input("Press Enter to exit...")
 
 if __name__ == "__main__":
     build_app() 

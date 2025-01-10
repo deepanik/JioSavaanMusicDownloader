@@ -1,5 +1,5 @@
 requests
 mutagen
 sanitize_filename
-tkinter
+pillow
 pyinstaller 
