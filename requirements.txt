@@ -3,3 +3,4 @@ mutagen
 sanitize_filename
 pillow
 pyinstaller 
+packaging>=21.0 
