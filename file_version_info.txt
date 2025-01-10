@@ -17,10 +17,10 @@ VSVersionInfo(
           [StringStruct(u'CompanyName', u'Your Company'),
            StringStruct(u'FileDescription', u'JioSaavn AI Downloader'),
            StringStruct(u'FileVersion', u'1.0.0'),
-           StringStruct(u'InternalName', u'jiosaavn_ai'),
+           StringStruct(u'InternalName', u'JioSaavn_AI_Downloader'),
            StringStruct(u'LegalCopyright', u'Copyright (c) 2024'),
            StringStruct(u'OriginalFilename', u'JioSaavn_AI_Downloader.exe'),
-           StringStruct(u'ProductName', u'JioSaavn MUSIC Downloader'),
+           StringStruct(u'ProductName', u'JioSaavn AI Downloader'),
            StringStruct(u'ProductVersion', u'1.0.0')])
       ])
   ]
